@@ -1,5 +1,6 @@
 @use "variables"; // Não é necessário escrever o underline (_) e nem a extensão do arquivo
 @use "hero";
+@use "shows";
 
 @font-face {
   font-family: Avenir;
@@ -28,11 +29,11 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: Avenir, sans-serif;
 }
 
 body {
   background-color: variables.$corDeFundo;
-  font-family: Avenir, sans-serif;
 }
 
 .text--big {
