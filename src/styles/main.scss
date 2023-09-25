@@ -1,5 +1,66 @@
-$bgColor: purple;
+@use "variables"; // Não é necessário escrever o underline (_) e nem a extensão do arquivo
+@use "hero";
+
+@font-face {
+  font-family: Avenir;
+  src: url(../../assets/fonts/Avenir-Regular.woff2);
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: Avenir;
+  src: url(../../assets/fonts/Avenir-Regular.woff2);
+  font-weight: 700;
+}
+
+@mixin text($fontSize: 16px) {
+  font-size: $fontSize;
+  line-height: $fontSize + 10px;
+  color: variables.$corTextoPrincipal;
+}
+
+@mixin title($fontSize: 40px) {
+  @include text($fontSize); // Podemos passar mixins dentro de outros mixins
+  color: variables.$corTextoSecundario;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 body {
-  background-color: $bgColor;
+  background-color: variables.$corDeFundo;
+  font-family: Avenir, sans-serif;
+}
+
+.text--big {
+  @include text(18px);
+}
+
+.text {
+  @include text;
+}
+
+.text--small {
+  @include text(12px);
+}
+
+.title--big {
+  @include title(44px);
+}
+
+.title {
+  @include title;
+}
+
+.title--small {
+  @include title(28px);
+}
+
+.link-text {
+  @include text(18px);
+  color: variables.$corTextoSecundario;
+  text-decoration: underline;
 }
