@@ -1,14 +1,27 @@
 @use "variables";
 
 .hero {
-  padding: 2.8vw;
+  padding: 2.6vw;
   min-height: 80vh;
   background-image: url(../images/hero_desktop.jpeg);
   background-size: cover;
+  background-repeat: no-repeat;
   text-align: center;
 
   .button {
     margin: 2vw 0 8px;
+
+    @media (max-width: 768px) {
+      margin-top: 5vw;
+    }
+  }
+
+  @media (max-width: 768px) {
+    background-image: url(../images/hero_celular.jpeg);
+    padding-top: calc(50vw + 25px);
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-top: -55px;
   }
 
   &__content {
@@ -17,6 +30,10 @@
     &__branding {
       max-width: 320px;
       margin: 0 auto 38px;
+
+      @media (max-width: 768px) {
+        max-width: 180px;
+      }
     }
 
     .title--small {
@@ -28,12 +45,20 @@
 
       &:last-child {
         margin-top: 60px;
+
+        @media (max-width: 768px) {
+          margin: 24px 0 44px;
+        }
       }
     }
 
     &__combos {
       display: flex;
       justify-content: space-between;
+
+      @media (max-width: 768px) {
+        display: block;
+      }
 
       &__combo {
         width: calc(
@@ -42,6 +67,11 @@
 
         img {
           max-height: 60px;
+        }
+
+        @media (max-width: 768px) {
+          width: 100%;
+          margin-bottom: 24px;
         }
       }
     }

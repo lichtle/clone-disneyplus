@@ -3,7 +3,11 @@
 
   h2 {
     text-align: center;
-    margin-bottom: 24px;
+    margin-bottom: 44px;
+
+    @media (max-width: 768px) {
+      margin-top: 44px;  
+    }
   }
 
   &__questions {
@@ -14,7 +18,7 @@
       &__question {
         color: #fff;
         font-size: 20px;
-        padding: 24px;
+        padding: 24px 74px 24px 24px;
         display: block;
         cursor: pointer;
         position: relative;

@@ -3,6 +3,10 @@
 .footer {
   padding: 26px 8px;
 
+  @media (max-width: 768px) {
+    padding: 5.6vw;
+  }
+
   &__container {
     max-width: 1024px;
     width: 100%;
