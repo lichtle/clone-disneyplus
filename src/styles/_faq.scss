@@ -1,0 +1,60 @@
+.faq {
+  padding: 5.6vw;
+
+  h2 {
+    text-align: center;
+    margin-bottom: 24px;
+  }
+
+  &__questions {
+    &__item {
+      background-color: #13151d;
+      margin-bottom: 16px;
+
+      &__question {
+        color: #fff;
+        font-size: 20px;
+        padding: 24px;
+        display: block;
+        cursor: pointer;
+        position: relative;
+
+        &::after {
+          content: "+";
+          position: absolute;
+          top: 0;
+          right: 24px;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          font-size: 40px;
+        }
+      }
+
+      &__answer {
+        height: 0;
+        overflow: hidden; // Precisamos usar as propriedades height 0 e overflow hidden pois estaremos adicionando uma transition quando o elemento de resposta for aberto, senão a transição não funcionará. Caso contrário poderíamos usar apenas o display: none (e a classe display: block quando a pergunta fosse aberta)
+        padding: 0 24px;
+        transition: height, 0.5s ease; // Adicionando a transição tanto ao elemento fechado quanto ao elemento aberto, para termos o mesmo efeito em ambos, e não somente na abertura
+
+        & > :not(:first-child) {
+          line-height: 50px;
+          padding-left: 26px;
+        }
+      }
+
+      &--is-open {
+        .faq__questions__item__question::after {
+          content: "-";
+          right: 30px;
+        }
+
+        .faq__questions__item__answer {
+          height: auto;
+          padding-bottom: 24px;
+          transition: height, 0.5s ease;
+        }
+      }
+    }
+  }
+}
